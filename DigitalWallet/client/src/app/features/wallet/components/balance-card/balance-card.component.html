@@ -1,0 +1,8 @@
+<div class="card">
+  <h2>Saldo disponible</h2>
+  <div *ngIf="loading">Cargando saldo...</div>
+  <div *ngIf="!loading">
+    <p class="title">{{ currentBalance | number:'1.2-2' }}</p>
+    <p class="footer-text">Última actualización: {{ lastUpdate | date:'short' }}</p>
+  </div>
+</div>

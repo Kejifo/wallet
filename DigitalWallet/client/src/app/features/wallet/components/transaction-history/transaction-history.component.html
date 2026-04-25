@@ -1,0 +1,25 @@
+<div class="card">
+  <h2>Historial de transacciones</h2>
+  <div *ngIf="loading">Cargando transacciones...</div>
+  <table *ngIf="!loading && transactions.length > 0" class="transaction-list">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Descripción</th>
+        <th>Tipo</th>
+        <th>Monto</th>
+        <th>Saldo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of transactions">
+        <td>{{ item.date | date:'short' }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.type | txLabel }}</td>
+        <td [ngClass]="item.type | txClass">{{ item.type | txSign }}{{ item.amount | number:'1.2-2' }}</td>
+        <td>{{ item.balanceAfter | number:'1.2-2' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!loading && transactions.length === 0" class="footer-text">Aún no hay transacciones registradas.</div>
+</div>

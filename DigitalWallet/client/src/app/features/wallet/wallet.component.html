@@ -1,0 +1,23 @@
+<div class="card">
+  <h1 class="title">DigiWallet</h1>
+  <p class="subtitle">Controla tu saldo, depósitos y retiros fácilmente.</p>
+
+  <div *ngIf="errorMessage" class="alert alert-error">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+
+  <app-balance-card
+    [currentBalance]="wallet?.currentBalance ?? 0"
+    [lastUpdate]="wallet?.lastUpdate"
+    [loading]="balanceLoading">
+  </app-balance-card>
+
+  <app-transaction-form
+    [loading]="transactionLoading"
+    (submitTransaction)="handleTransaction($event)">
+  </app-transaction-form>
+
+  <app-transaction-history
+    [transactions]="wallet?.transactions || []"
+    [loading]="transactionLoading">
+  </app-transaction-history>
+</div>

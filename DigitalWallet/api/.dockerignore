@@ -1,0 +1,10 @@
+bin/
+obj/
+.git/
+.gitignore
+*.user
+*.suo
+.vs/
+.vscode/
+node_modules/
+.env.local

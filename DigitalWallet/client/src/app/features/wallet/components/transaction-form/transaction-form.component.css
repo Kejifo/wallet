@@ -1,0 +1,8 @@
+.field span {
+  color: #b91c1c;
+  font-size: 12px;
+}
+
+textarea {
+  resize: vertical;
+}

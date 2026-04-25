@@ -1,0 +1,7 @@
+.transaction-list td {
+  vertical-align: middle;
+}
+
+.transaction-list tbody tr:hover {
+  background: #f8fafc;
+}
